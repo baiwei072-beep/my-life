@@ -4,6 +4,7 @@ This is a static personal blog with a local browser-based writing tool.
 
 ## Open locally
 
+Redeploy trigger
 Double-click [index.html](./index.html) to open it in your browser.
 
 ## Run as a local frontend app

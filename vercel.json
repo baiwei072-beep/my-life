@@ -1,25 +1,16 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "installCommand": "echo static-site",
-  "buildCommand": "echo static-site",
-  "cleanUrls": true,
-  "trailingSlash": false,
-  "rewrites": [
+  "version": 2,
+  "builds": [
     {
-      "source": "/",
-      "destination": "/index.html"
-    },
+      "src": "app.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
     {
-      "source": "/login",
-      "destination": "/login.html"
-    },
-    {
-      "source": "/compose",
-      "destination": "/compose.html"
-    },
-    {
-      "source": "/post",
-      "destination": "/post.html"
+      "src": "/(.*)",
+      "dest": "app.py"
     }
   ],
   "headers": [

@@ -11,7 +11,7 @@ Double-click [index.html](./index.html) to open it in your browser.
 1. Create the virtual environment:
    `python3 -m venv .venv`
 2. Install dependencies:
-   `./.venv/bin/pip install -r requirements.txt`
+   `./.venv/bin/pip install -r requirements-dev.txt`
 3. Install the browser for automation:
    `./.venv/bin/playwright install chromium`
 4. Start the local server:

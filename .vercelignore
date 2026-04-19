@@ -1,5 +1,5 @@
 .venv
 tools
-requirements.txt
+requirements-dev.txt
 DEPLOY_VERCEL.md
 .DS_Store

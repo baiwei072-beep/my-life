@@ -437,6 +437,13 @@ select {
   gap: 6px;
 }
 
+.history-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
 .markdown-panel {
   min-height: 100%;
 }
@@ -451,6 +458,32 @@ select {
   color: var(--text);
   line-height: 1.7;
   resize: vertical;
+}
+
+.detail-panel {
+  min-height: 100%;
+}
+
+.detail-stack {
+  display: grid;
+  gap: 16px;
+}
+
+.detail-block {
+  display: grid;
+  gap: 8px;
+}
+
+.detail-pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  padding: 16px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(10, 6, 16, 0.52);
+  color: var(--muted);
+  line-height: 1.7;
 }
 
 @media (max-width: 940px) {

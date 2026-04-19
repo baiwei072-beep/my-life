@@ -72,6 +72,7 @@ export default async function HomePage({ searchParams }) {
         </div>
 
         <div className="actions">
+          <Link className="button secondary" href="/requirements">需求工作台</Link>
           <Link className="button secondary" href="/settings/profile">空间设置</Link>
           <form action={signOut}>
             <button className="button" type="submit">退出登录</button>

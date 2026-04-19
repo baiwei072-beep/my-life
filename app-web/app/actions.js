@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
+import { generateRequirementArtifact } from "@/lib/requirements";
 import { createClient } from "@/lib/supabase/server";
 
 function safeMessage(message) {
@@ -173,4 +174,92 @@ export async function deletePost(formData) {
 
   revalidatePath("/");
   redirect("/?message=" + safeMessage("这条内容已经删除。"));
+}
+
+export async function saveRequirementWorkspace(formData) {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) {
+    redirect("/login");
+  }
+
+  const workspaceId = String(formData.get("workspace_id") || "").trim();
+  const rawRequest = String(formData.get("raw_request") || "").trim();
+  const designContext = String(formData.get("design_context") || "").trim();
+  const apiSpec = String(formData.get("api_spec") || "").trim();
+
+  if (!rawRequest) {
+    redirect("/requirements?error=" + safeMessage("至少要输入一句原始需求。"));
+  }
+
+  const artifact = generateRequirementArtifact({
+    rawRequest,
+    designContext,
+    apiSpec,
+  });
+
+  const payload = {
+    title: artifact.title,
+    raw_request: rawRequest,
+    design_context: designContext,
+    api_spec: apiSpec,
+    generated_markdown: artifact.markdown,
+    analysis: artifact.analysis,
+    updated_at: new Date().toISOString(),
+  };
+
+  const { error } = workspaceId
+    ? await supabase
+        .from("requirement_workspaces")
+        .update(payload)
+        .eq("id", workspaceId)
+        .eq("owner_id", user.id)
+    : await supabase.from("requirement_workspaces").insert({
+        owner_id: user.id,
+        ...payload,
+      });
+
+  if (error) {
+    redirect("/requirements?error=" + safeMessage(error.message));
+  }
+
+  revalidatePath("/requirements");
+  if (workspaceId) {
+    revalidatePath(`/requirements/${workspaceId}`);
+  }
+  redirect("/requirements?message=" + safeMessage(workspaceId ? "需求分析结果已经更新。" : "需求分析结果已经生成并保存。"));
+}
+
+export async function deleteRequirementWorkspace(formData) {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) {
+    redirect("/login");
+  }
+
+  const workspaceId = String(formData.get("workspace_id") || "").trim();
+
+  if (!workspaceId) {
+    redirect("/requirements?error=" + safeMessage("缺少要删除的记录。"));
+  }
+
+  const { error } = await supabase
+    .from("requirement_workspaces")
+    .delete()
+    .eq("id", workspaceId)
+    .eq("owner_id", user.id);
+
+  if (error) {
+    redirect("/requirements?error=" + safeMessage(error.message));
+  }
+
+  revalidatePath("/requirements");
+  revalidatePath(`/requirements/${workspaceId}`);
+  redirect("/requirements?message=" + safeMessage("需求记录已删除。"));
 }

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mike | 登录</title>
+  <meta name="description" content="登录后进入你的个人空间。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="login-page" data-page-key="login">
+  <main class="login-shell">
+    <section class="login-brand">
+      <p class="section-kicker" data-i18n="loginKicker">Purple Room</p>
+      <h1 class="login-title" data-i18n="loginTitle">最后，走进属于你自己的房间。</h1>
+      <p class="login-copy" data-i18n="loginCopy">记录想法、收纳碎念、上传语音、慢慢长成只属于你的空间。</p>
+      <div class="login-brand-badges">
+        <span class="login-badge" data-i18n="loginBadgeOne">微信登录</span>
+        <span class="login-badge" data-i18n="loginBadgeTwo">邮箱注册</span>
+        <span class="login-badge" data-i18n="loginBadgeThree">手机号验证码</span>
+      </div>
+    </section>
+
+    <section class="login-card">
+      <div class="login-card-head">
+        <p class="post-meta" data-i18n="loginCardKicker">进入空间</p>
+        <button class="button button-secondary button-small js-lang-toggle" type="button">EN</button>
+      </div>
+
+      <div class="login-tabs">
+        <button class="login-tab is-active js-auth-tab" type="button" data-mode="wechat" data-i18n="loginWechat">微信</button>
+        <button class="login-tab js-auth-tab" type="button" data-mode="email" data-i18n="loginEmail">邮箱</button>
+        <button class="login-tab js-auth-tab" type="button" data-mode="phone" data-i18n="loginPhone">手机号</button>
+      </div>
+
+      <form class="login-form js-auth-form" data-mode="wechat">
+        <p class="login-helper" data-i18n="loginWechatHint">先用节俭版本地模拟微信登录，后面接正式微信开放平台。</p>
+        <label class="field">
+          <span data-i18n="loginNickname">昵称</span>
+          <input name="nickname" type="text" data-i18n-placeholder="loginNicknamePlaceholder" placeholder="比如 Mike" required>
+        </label>
+        <button type="submit" class="button button-primary login-submit" data-i18n="loginWechatAction">使用微信进入</button>
+      </form>
+
+      <form class="login-form js-auth-form is-hidden" data-mode="email">
+        <label class="field">
+          <span data-i18n="loginEmailLabel">邮箱</span>
+          <input name="email" type="email" data-i18n-placeholder="loginEmailPlaceholder" placeholder="you@example.com" required>
+        </label>
+        <label class="field">
+          <span data-i18n="loginPasswordLabel">密码</span>
+          <input name="password" type="password" data-i18n-placeholder="loginPasswordPlaceholder" placeholder="至少 6 位" required>
+        </label>
+        <button type="submit" class="button button-primary login-submit" data-i18n="loginEmailAction">邮箱登录 / 注册</button>
+      </form>
+
+      <form class="login-form js-auth-form is-hidden" data-mode="phone">
+        <label class="field">
+          <span data-i18n="loginPhoneLabel">手机号</span>
+          <input name="phone" type="tel" data-i18n-placeholder="loginPhonePlaceholder" placeholder="请输入手机号" required>
+        </label>
+        <div class="login-code-row">
+          <label class="field">
+            <span data-i18n="loginCodeLabel">验证码</span>
+            <input name="code" type="text" data-i18n-placeholder="loginCodePlaceholder" placeholder="6 位验证码" required>
+          </label>
+          <button class="button button-secondary login-code-button js-send-code" type="button" data-i18n="loginSendCode">发送验证码</button>
+        </div>
+        <button type="submit" class="button button-primary login-submit" data-i18n="loginPhoneAction">手机号进入</button>
+      </form>
+
+      <p class="publish-message js-login-message" aria-live="polite"></p>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mike | 写作台</title>
+  <meta name="description" content="在本地写作并发布博客内容。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="article-page" data-page-key="compose">
+  <div class="page-shell">
+    <header class="profile-bar">
+      <div class="profile-bar-left">
+        <div class="profile-avatar avatar-shell js-avatar-trigger" role="button" tabindex="0" aria-label="Mike avatar">
+          <img src="assets/avatar.png" alt="" class="profile-avatar-image js-avatar">
+          <div class="pixel-bug js-default-avatar" aria-hidden="true">
+            <span class="pixel-bug-core"></span>
+          </div>
+        </div>
+        <div>
+          <a class="profile-name" href="index.html">Mike</a>
+          <div class="profile-note-inline js-profile-note-inline">
+            <button class="profile-note-display js-profile-note-display" type="button"></button>
+            <input class="profile-note-input js-profile-note-input" type="text">
+          </div>
+        </div>
+      </div>
+      <div class="profile-bar-actions">
+        <button class="button button-secondary button-small js-lang-toggle" type="button">EN</button>
+        <label class="button button-secondary upload-button" for="avatar-input" data-i18n="changeAvatar">更换头像</label>
+        <input id="avatar-input" class="visually-hidden" type="file" accept="image/*">
+        <button class="button button-secondary button-small js-logout" type="button" data-i18n="logoutAction">退出</button>
+        <a class="button button-primary" href="index.html" data-i18n="homeAction">首页</a>
+      </div>
+    </header>
+
+    <section class="article-shell composer-shell">
+      <p class="post-meta" data-i18n="writingStudio">写作台</p>
+      <h1 class="article-title" data-i18n="composePageTitle">写作并发布一篇内容</h1>
+      <p class="compose-note" data-i18n="composePageNote">这个编辑器会把文章保存在当前浏览器里，并立即同步到首页。</p>
+
+      <form id="post-form" class="compose-form">
+        <label class="field">
+          <span data-i18n="fieldTitle">标题</span>
+          <input id="post-title" name="title" type="text" placeholder="写一个值得留下的标题" data-i18n-placeholder="fieldTitlePlaceholder" required>
+        </label>
+
+        <div class="compose-row">
+          <label class="field">
+            <span data-i18n="fieldCategory">分类</span>
+            <input id="post-category" name="category" type="text" placeholder="工作记录" data-i18n-placeholder="fieldCategoryPlaceholder" required>
+          </label>
+          <label class="field">
+            <span data-i18n="fieldDate">日期</span>
+            <input id="post-date" name="date" type="date" required>
+          </label>
+        </div>
+
+        <label class="field">
+          <span data-i18n="fieldSummary">摘要</span>
+          <textarea id="post-excerpt" name="excerpt" rows="3" placeholder="为首页卡片写一段简短摘要" data-i18n-placeholder="fieldSummaryPlaceholder" required></textarea>
+        </label>
+
+        <label class="field">
+          <span data-i18n="fieldBody">正文</span>
+          <textarea id="post-body" name="body" rows="16" placeholder="在这里写作。段落之间留一空行。" data-i18n-placeholder="fieldBodyPlaceholder" required></textarea>
+        </label>
+
+        <div class="compose-actions">
+          <button type="submit" class="button button-primary" data-i18n="publishAction">发布</button>
+          <button type="button" class="button button-secondary" id="clear-form" data-i18n="clearAction">清空</button>
+        </div>
+
+        <p id="publish-message" class="publish-message" aria-live="polite"></p>
+      </form>
+    </section>
+  </div>
+  <div class="avatar-picker-overlay js-avatar-picker" hidden>
+    <div class="avatar-picker-card" role="dialog" aria-modal="true">
+      <div class="avatar-picker-head">
+        <div>
+          <p class="section-kicker" data-i18n="avatarPickerKicker">头像推荐</p>
+          <h2 class="avatar-picker-title" data-i18n="avatarPickerTitle">挑一个像 QQ 时代那样的头像</h2>
+        </div>
+        <button class="avatar-picker-close js-avatar-picker-close" type="button" aria-label="Close">×</button>
+      </div>
+      <div class="avatar-picker-grid js-avatar-presets"></div>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

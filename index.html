@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mike | 个人空间</title>
+  <meta name="description" content="Mike 的个人博客，记录工作、生活与缓慢沉淀的想法。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page-key="home">
+  <div class="page-shell">
+    <header class="profile-bar">
+      <div class="profile-bar-left">
+        <div class="profile-avatar avatar-shell js-avatar-trigger" role="button" tabindex="0" aria-label="Mike avatar">
+          <img src="assets/avatar.png" alt="" class="profile-avatar-image js-avatar">
+          <div class="pixel-bug js-default-avatar" aria-hidden="true">
+            <span class="pixel-bug-core"></span>
+          </div>
+        </div>
+        <div>
+          <a class="profile-name" href="index.html">Mike</a>
+          <div class="profile-note-inline js-profile-note-inline">
+            <button class="profile-note-display js-profile-note-display" type="button"></button>
+            <input class="profile-note-input js-profile-note-input" type="text">
+          </div>
+        </div>
+      </div>
+      <div class="profile-bar-actions">
+        <button class="button button-secondary button-small js-lang-toggle" type="button">EN</button>
+        <label class="button button-secondary upload-button" for="avatar-input" data-i18n="changeAvatar">更换头像</label>
+        <input id="avatar-input" class="visually-hidden" type="file" accept="image/*">
+        <button class="button button-secondary button-small js-logout" type="button" data-i18n="logoutAction">退出</button>
+        <a class="button button-primary" href="#writing-studio" data-i18n="publishAction">发布</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="intro-strip">
+        <p data-i18n="introText">一个把想法留下来的地方，不让它们被更快的平台轻易冲走。</p>
+      </section>
+
+      <section class="space-welcome">
+        <div class="space-welcome-main">
+          <p class="section-kicker" data-i18n="spaceKicker">我的空间</p>
+          <h1 class="space-title" data-i18n="spaceTitle">欢迎回来，这里是你的想法栖息地。</h1>
+          <p class="space-copy" id="space-summary-copy">--</p>
+        </div>
+        <div class="space-stats">
+          <div class="space-stat">
+            <span class="space-stat-label" data-i18n="spaceStatPosts">已收下的念头</span>
+            <strong class="space-stat-value" id="space-post-count">0</strong>
+          </div>
+          <div class="space-stat">
+            <span class="space-stat-label" data-i18n="spaceStatTheme">最近偏向</span>
+            <strong class="space-stat-value" id="space-main-theme">--</strong>
+          </div>
+          <div class="space-stat">
+            <span class="space-stat-label" data-i18n="spaceStatLatest">最新一条</span>
+            <strong class="space-stat-value" id="space-latest-date">--</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="workspace-shell">
+        <div class="workspace-main">
+          <section class="mood-panel">
+            <div class="mood-panel-main">
+              <p class="section-kicker" data-i18n="moodKicker">今日信号</p>
+              <h2 class="mood-title" id="home-date">--</h2>
+              <p class="mood-copy" id="home-mood-copy">--</p>
+            </div>
+            <div class="mood-panel-side">
+              <div class="mood-chip">
+                <span class="mood-chip-label" data-i18n="calendarWeatherLabel">天气</span>
+                <strong class="mood-chip-value" id="home-weather">--</strong>
+              </div>
+              <div class="mood-chip">
+                <span class="mood-chip-label" data-i18n="moodSuggestionLabel">今日小提示</span>
+                <strong class="mood-chip-value" id="home-suggestion">--</strong>
+              </div>
+            </div>
+          </section>
+
+          <section class="section-head" id="posts">
+            <div>
+              <p class="section-kicker" data-i18n="postsKicker">文章</p>
+              <h2 data-i18n="recentPosts">最新内容</h2>
+            </div>
+            <p class="section-note" data-i18n="postsImmediateNote">在这个浏览器发布的内容会立即显示在这里。</p>
+          </section>
+
+          <section class="thought-board">
+            <div class="section-head section-head-tight">
+              <div>
+                <p class="section-kicker" data-i18n="thoughtBoardKicker">想法归档</p>
+                <h2 data-i18n="thoughtBoardTitle">这些念头最近都落到了哪里</h2>
+              </div>
+              <p class="section-note" data-i18n="thoughtBoardNote">发布后会自动归类，帮你看见自己最近在想什么。</p>
+            </div>
+            <div class="thought-clusters" id="thought-clusters"></div>
+          </section>
+
+          <section class="post-grid" id="post-grid">
+            <article class="post-card" data-sample-slug="sample-growth">
+              <button class="post-card-delete js-delete-post" type="button" data-sample-slug="sample-growth" data-i18n="deletePost">删除</button>
+              <p class="post-meta" data-i18n="sampleMetaOne">2026.04.19 · 工作记录</p>
+              <h3><a href="posts/fintech-projects.html" data-i18n="sampleTitleOne">在复杂工作里，真正有价值的不是无所不知，而是持续把事情推进</a></h3>
+              <p data-i18n="sampleExcerptOne">一篇关于困难工作中真正重要之事的反思：清晰度、取舍、节奏，以及执行。</p>
+            </article>
+
+            <article class="post-card" data-sample-slug="sample-writing">
+              <button class="post-card-delete js-delete-post" type="button" data-sample-slug="sample-writing" data-i18n="deletePost">删除</button>
+              <p class="post-meta" data-i18n="sampleMetaTwo">2026.04.18 · 自我成长</p>
+              <h3><a href="posts/writing-practice.html" data-i18n="sampleTitleTwo">为什么我想要一个个人博客，而不是只在社交平台写作</a></h3>
+              <p data-i18n="sampleExcerptTwo">不是为了打造个人品牌，而是保留一个让写作保持私人、可检索、也更安静的地方。</p>
+            </article>
+          </section>
+        </div>
+
+        <aside class="workspace-side" id="writing-studio">
+          <section class="article-shell composer-shell composer-shell-compact">
+            <p class="post-meta" data-i18n="writingStudio">写作台</p>
+            <p class="compose-note compose-note-compact" data-i18n="writingNote">右边起草，点击发布后，左边会立刻出现新的内容卡片。</p>
+
+            <form id="post-form" class="compose-form">
+              <label class="field">
+                <span data-i18n="fieldTitle">标题</span>
+                <input id="post-title" name="title" type="text" placeholder="写一个值得留下的标题" data-i18n-placeholder="fieldTitlePlaceholder" required>
+              </label>
+
+              <div class="compose-row">
+                <label class="field">
+                  <span data-i18n="fieldCategory">分类</span>
+                  <input id="post-category" name="category" type="text" placeholder="工作记录" data-i18n-placeholder="fieldCategoryPlaceholder" required>
+                </label>
+                <label class="field">
+                  <span data-i18n="fieldDate">日期</span>
+                  <input id="post-date" name="date" type="date" required>
+                </label>
+              </div>
+
+              <label class="field">
+                <span data-i18n="fieldSummary">摘要</span>
+                <textarea id="post-excerpt" name="excerpt" rows="3" placeholder="为首页卡片写一段简短摘要" data-i18n-placeholder="fieldSummaryPlaceholder" required></textarea>
+              </label>
+
+              <label class="field">
+                <span data-i18n="fieldBody">正文</span>
+                <textarea id="post-body" name="body" rows="14" placeholder="在这里写作。段落之间留一空行。" data-i18n-placeholder="fieldBodyPlaceholder" required></textarea>
+              </label>
+
+              <div class="compose-actions">
+                <button type="submit" class="button button-primary" data-i18n="publishAction">发布</button>
+                <button type="button" class="button button-secondary" id="clear-form" data-i18n="clearAction">清空</button>
+              </div>
+
+              <p id="publish-message" class="publish-message" aria-live="polite"></p>
+            </form>
+          </section>
+        </aside>
+      </section>
+
+      <section class="minimal-footer-note" id="about">
+        <p data-i18n="footerNote">先写下你真正想说的话，声音会慢慢长出来。</p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p data-i18n="siteFooter">© 2026 Mike。为安静写作而建。</p>
+    </footer>
+  </div>
+
+  <div class="avatar-picker-overlay js-avatar-picker" hidden>
+    <div class="avatar-picker-card" role="dialog" aria-modal="true">
+      <div class="avatar-picker-head">
+        <div>
+          <p class="section-kicker" data-i18n="avatarPickerKicker">头像推荐</p>
+          <h2 class="avatar-picker-title" data-i18n="avatarPickerTitle">挑一个像 QQ 时代那样的头像</h2>
+        </div>
+        <button class="avatar-picker-close js-avatar-picker-close" type="button" aria-label="Close">×</button>
+      </div>
+      <div class="avatar-picker-grid js-avatar-presets"></div>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

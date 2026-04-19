@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mike | 文章</title>
+  <meta name="description" content="阅读已发布的本地文章。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="article-page" data-page-key="post">
+  <div class="page-shell">
+    <header class="profile-bar">
+      <div class="profile-bar-left">
+        <div class="profile-avatar avatar-shell js-avatar-trigger" role="button" tabindex="0" aria-label="Mike avatar">
+          <img src="assets/avatar.png" alt="" class="profile-avatar-image js-avatar">
+          <div class="pixel-bug js-default-avatar" aria-hidden="true">
+            <span class="pixel-bug-core"></span>
+          </div>
+        </div>
+        <div>
+          <a class="profile-name" href="index.html">Mike</a>
+          <div class="profile-note-inline js-profile-note-inline">
+            <button class="profile-note-display js-profile-note-display" type="button"></button>
+            <input class="profile-note-input js-profile-note-input" type="text">
+          </div>
+        </div>
+      </div>
+      <div class="profile-bar-actions">
+        <button class="button button-secondary button-small js-lang-toggle" type="button">EN</button>
+        <label class="button button-secondary upload-button" for="avatar-input" data-i18n="changeAvatar">更换头像</label>
+        <input id="avatar-input" class="visually-hidden" type="file" accept="image/*">
+        <button class="button button-secondary button-small js-logout" type="button" data-i18n="logoutAction">退出</button>
+        <a class="button button-primary" href="index.html#writing-studio" data-i18n="publishAction">发布</a>
+      </div>
+    </header>
+
+    <section class="post-layout">
+      <article class="article-shell">
+        <a class="article-back" href="index.html" data-i18n="backHome">← 返回首页</a>
+        <p class="post-meta" id="dynamic-meta">加载中...</p>
+        <h1 class="article-title" id="dynamic-title">文章加载中</h1>
+        <div class="article-body" id="dynamic-body"></div>
+      </article>
+
+      <aside class="calendar-panel">
+        <p class="post-meta" data-i18n="calendarKicker">万年历</p>
+        <h2 class="calendar-title" data-i18n="calendarTitle">今日黄历卡片</h2>
+        <div class="calendar-stack">
+          <div class="calendar-item">
+            <span class="calendar-label" data-i18n="calendarDateLabel">日期</span>
+            <strong class="calendar-value" id="calendar-date">--</strong>
+          </div>
+          <div class="calendar-item">
+            <span class="calendar-label" data-i18n="calendarWeatherLabel">天气</span>
+            <strong class="calendar-value" id="calendar-weather">--</strong>
+            <span class="calendar-subvalue" id="calendar-location">--</span>
+          </div>
+          <div class="calendar-item">
+            <span class="calendar-label" data-i18n="calendarYiLabel">今日宜</span>
+            <strong class="calendar-value calendar-value-list" id="calendar-yi">--</strong>
+          </div>
+          <div class="calendar-item">
+            <span class="calendar-label" data-i18n="calendarJiLabel">今日忌</span>
+            <strong class="calendar-value calendar-value-list" id="calendar-ji">--</strong>
+          </div>
+        </div>
+      </aside>
+    </section>
+  </div>
+  <div class="avatar-picker-overlay js-avatar-picker" hidden>
+    <div class="avatar-picker-card" role="dialog" aria-modal="true">
+      <div class="avatar-picker-head">
+        <div>
+          <p class="section-kicker" data-i18n="avatarPickerKicker">头像推荐</p>
+          <h2 class="avatar-picker-title" data-i18n="avatarPickerTitle">挑一个像 QQ 时代那样的头像</h2>
+        </div>
+        <button class="avatar-picker-close js-avatar-picker-close" type="button" aria-label="Close">×</button>
+      </div>
+      <div class="avatar-picker-grid js-avatar-presets"></div>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
